@@ -96,6 +96,7 @@ public LibraryManagementSystemGUI() {
                 JOptionPane.showMessageDialog(null, "Please enter a book title.");
             }
         });
+
        // Remove book by title action
         removeButton.addActionListener(e -> {
             String book = bookField.getText();
@@ -162,5 +163,66 @@ public static void main(String[] args) {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+}
+
+class Library {
+    private String[] books;
+    private int size;
+    private static final int INITIAL_CAPACITY = 10;
+
+    public Library() {
+        books = new String[INITIAL_CAPACITY];
+        size = 0;
+    }
+
+    public void add(String book) {
+        ensureCapacity();
+        books[size] = book;
+        size++;
+    }
+
+    private void ensureCapacity() {
+        if (size == books.length) {
+            String[] newBooks = new String[books.length * 2];
+            System.arraycopy(books, 0, newBooks, 0, books.length);
+            books = newBooks;
+        }
+    }
+
+    public boolean remove(String book) {
+        for (int i = 0; i < size; i++) {
+            if (books[i].equalsIgnoreCase(book)) {
+                for (int j = i; j < size - 1; j++) {
+                    books[j] = books[j + 1];
+                }
+                books[size - 1] = null;
+                size--;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+        return books[index];
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public String displayBooks() {
+        if (size == 0) {
+            return "No books available.";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < size; i++) {
+            sb.append((i + 1)).append(". ").append(books[i]).append("\n");
+        }
+        return sb.toString();
     }
 }

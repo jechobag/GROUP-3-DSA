@@ -111,3 +111,14 @@ public LibraryManagementSystemGUI() {
                 JOptionPane.showMessageDialog(null, "Please enter a book title.");
             }
         });
+
+      // Search book by index action
+        searchButton.addActionListener(e -> {
+            try {
+                int index = Integer.parseInt(indexField.getText()) - 1;
+                String book = library.get(index);
+                displayArea.setText("Book at index " + (index + 1) + ": " + book);
+            } catch (NumberFormatException | IndexOutOfBoundsException ex) {
+                JOptionPane.showMessageDialog(null, "Invalid index. Please enter a valid number.");
+            }
+        });

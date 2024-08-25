@@ -96,3 +96,18 @@ public LibraryManagementSystemGUI() {
                 JOptionPane.showMessageDialog(null, "Please enter a book title.");
             }
         });
+       // Remove book by title action
+        removeButton.addActionListener(e -> {
+            String book = bookField.getText();
+            if (!book.isEmpty()) {
+                boolean removed = library.remove(book);
+                if (removed) {
+                    displayArea.setText("Book removed: " + book + "\n" + library.displayBooks());
+                } else {
+                    displayArea.setText("Book not found: " + book);
+                }
+                bookField.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Please enter a book title.");
+            }
+        });

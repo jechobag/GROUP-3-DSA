@@ -1,1 +1,7 @@
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+
+public class LibraryManagementSystemGUI extends JFrame {
+    private Library library = new Library();
 

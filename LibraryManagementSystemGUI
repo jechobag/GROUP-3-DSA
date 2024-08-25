@@ -84,3 +84,15 @@ public LibraryManagementSystemGUI() {
         add(inputPanel, BorderLayout.NORTH);
         add(new JScrollPane(displayArea), BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
+
+        // Add book action
+        addButton.addActionListener(e -> {
+            String book = bookField.getText();
+            if (!book.isEmpty()) {
+                library.add(book);
+                displayArea.setText("Book added: " + book + "\n" + library.displayBooks());
+                bookField.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Please enter a book title.");
+            }
+        });

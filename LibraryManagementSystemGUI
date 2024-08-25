@@ -122,3 +122,16 @@ public LibraryManagementSystemGUI() {
                 JOptionPane.showMessageDialog(null, "Invalid index. Please enter a valid number.");
             }
         });
+
+    // Display all books action
+        displayButton.addActionListener(e -> displayArea.setText(library.displayBooks()));
+
+        // Display total number of books action
+        totalButton.addActionListener(e -> displayArea.setText("Total Number of Books: " + library.size()));
+
+        // Exit button action
+        exitButton.addActionListener(e -> System.exit(0)); // Exits the application
+
+        // Initialize the GUI
+        setVisible(true);
+    }

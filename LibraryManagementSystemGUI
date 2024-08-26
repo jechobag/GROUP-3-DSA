@@ -6,8 +6,10 @@ public class LibraryManagementSystemGUI extends JFrame {
     private Library library = new Library();
 
 public LibraryManagementSystemGUI() {
+        
         ImageIcon img = new ImageIcon(LibraryManagementSystemGUI.class.getResource("/book blue.png"));
         this.setIconImage(img.getImage());
+        
         setTitle("Library Management System");
         setSize(600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -125,7 +127,7 @@ public LibraryManagementSystemGUI() {
         inputPanel.add(indexField, gbc_indexField);
         getContentPane().add(new JScrollPane(displayArea), BorderLayout.CENTER);
         getContentPane().add(buttonPanel, BorderLayout.SOUTH);
-        }
+    }
 
         // Add book action
         addButton.addActionListener(e -> {

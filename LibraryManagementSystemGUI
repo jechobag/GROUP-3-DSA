@@ -204,32 +204,7 @@ private void initComponents() {
     }// </editor-fold>//GEN-END:initComponents
 
 public static void main(String[] args) {
-        // Create the loading frame
-        loading l = new loading();
-        l.setLocationRelativeTo(null); // Center the loading frame on the screen
-        l.setVisible(true);
-
-        try {
-            for (int x = 0; x <= 100; x++) {
-                Thread.sleep(110);
-                loading.jLabel1.setText(Integer.toString(x) + "%");
-                loading.bar.setValue(x);
-
-                if (x == 100) {
-                    l.dispose(); // Dispose the loading JFrame
-                    
-                    // Create the main GUI frame
-                    LibraryManagementSystemGUI m = new LibraryManagementSystemGUI();
-                    
-                    // Set the main GUI location to the same as the loading frame
-                    m.setLocation(l.getLocation());
-                    m.setVisible(true);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
